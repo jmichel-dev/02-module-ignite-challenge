@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   MdDelete,
   MdAddCircleOutline,
@@ -7,8 +6,6 @@ import {
 import { useCart } from "../../hooks/useCart";
 import { formatPrice } from "../../util/format";
 
-// import { useCart } from '../../hooks/useCart';
-// import { formatPrice } from '../../util/format';
 import { Container, ProductTable, Total } from "./styles";
 
 interface Product {
@@ -43,14 +40,14 @@ const Cart = (): JSX.Element => {
   function handleProductIncrement(product: Product) {
     updateProductAmount({
       productId: product.id,
-      amount: 1,
+      amount: product.amount + 1,
     });
   }
 
   function handleProductDecrement(product: Product) {
     updateProductAmount({
       productId: product.id,
-      amount: -1,
+      amount: product.amount - 1,
     });
   }
 
